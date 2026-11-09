@@ -23,7 +23,7 @@ npm run contract:generate
 - `GET /health` funciona sin credenciales y responde HTTP 200.
 - El `Content-Type` es JSON y el cuerpo es exactamente `{"status":"ok"}`.
 - El OpenAPI generado declara `GET /health`, una respuesta 200 y `status` restringido al valor `ok`.
-- El documento OpenAPI generado coincide con `contracts/openapi.json` versionado.
+- El documento OpenAPI generado coincide con `specs/contracts/openapi.json` versionado.
 
 ## Comprobación manual
 

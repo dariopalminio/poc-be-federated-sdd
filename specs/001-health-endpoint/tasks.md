@@ -6,7 +6,7 @@ description: "Tareas para implementar el endpoint de salud"
 
 **Input**: Documentos de diseño en `/specs/001-health-endpoint/`
 
-**Prerrequisitos**: `plan.md`, `spec.md`, `research.md`, `data-model.md` y `contracts/openapi.json`
+**Prerrequisitos**: `plan.md`, `spec.md`, `research.md`, `data-model.md` y `specs/contracts/openapi.json`
 
 **Pruebas**: Suite unitaria con `node:test` en `tests/health.test.js`; `npm test` compila y ejecuta la suite.
 
@@ -42,7 +42,7 @@ description: "Tareas para implementar el endpoint de salud"
 
 - [X] T005 [US1] Registrar `GET /health` en `src/app.ts` sin autenticación y con respuesta JSON cuyo esquema requiere `status` constante `ok` y rechaza propiedades adicionales.
 - [X] T006 [P] [US1] Crear `src/server.ts` para iniciar la aplicación exportada por `src/app.ts` en el puerto de `PORT`, usando `3000` como valor local predeterminado.
-- [X] T007 [US1] Crear `src/generate-openapi.ts` para generar OpenAPI desde el esquema de Fastify y escribir `specs/001-health-endpoint/contracts/openapi.json` con `GET /health` y seguridad vacía.
+- [X] T007 [US1] Crear `src/generate-openapi.ts` para generar OpenAPI desde el esquema de Fastify y escribir `specs/contracts/openapi.json` con `GET /health` y seguridad vacía.
 - [X] T008 [US1] Crear `tests/health.test.js` con pruebas unitarias del endpoint público y de la paridad entre el OpenAPI generado y el contrato versionado.
 
 **Checkpoint**: La historia es demostrable de manera independiente mediante la respuesta HTTP y el contrato generado.
@@ -87,7 +87,7 @@ Después de T005, ejecutar T007 para generar el contrato OpenAPI.
 1. Completar setup y fundamentos.
 2. Implementar la historia P1 y generar el contrato local.
 3. Validar la respuesta y el contrato usando la guía de quickstart.
-4. No declarar alineación con consumidores hasta que el Hub registre el artefacto y su revisión inmutable en el manifiesto. Esa coordinación queda fuera de las tareas de este repositorio.
+4. No declarar alineación con consumidores hasta que el Hub registre `specs/contracts/openapi.json` y la revisión Backend inmutable que contiene el artefacto. Esa coordinación queda fuera de las tareas de este repositorio.
 
 ## Resumen
 

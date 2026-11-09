@@ -35,7 +35,7 @@ Implementar `GET /health` como una operación pública que responda HTTP 200 con
 - **Alcance federado**: Cumple. La fuente verificada es el commit `8601464b8be53de3ccc5fe848b12540f1c0b0159`; el manifiesto asigna `backend-health`, esta ruta local y `FR-001`, `FR-002`, `FR-003` y `FR-006`.
 - **Trazabilidad**: Cumple. `origin.yaml` conserva la misma revisión completa y los mismos requisitos.
 - **Propiedad del contrato**: Cumple localmente. El Backend define el contrato OpenAPI canónico.
-- **Límite de alineación**: La revisión de origen declara `shared_contracts: []`. Este plan produce un artefacto candidato en el Backend; no afirma alineación con consumidores. Antes de adoptar el contrato en otros repositorios, el Hub debe publicar una nueva revisión inmutable que registre su ruta y commit.
+- **Límite de alineación**: La última revisión publicada del Hub fija el contrato anterior en su ruta y commit previos. Este cambio publica el contrato en `specs/contracts/openapi.json`; no se afirma alineación con consumidores hasta que el Hub actualice `shared_contracts` con esta ruta y el nuevo commit inmutable.
 - **Verificación**: Las pruebas y comandos de proyecto se proponen aquí para su incorporación al manifiesto futuro; no existen actualmente y no se reportan como ejecutados.
 
 ## Estructura del proyecto
@@ -48,9 +48,10 @@ specs/001-health-endpoint/
 ├── research.md
 ├── data-model.md
 ├── quickstart.md
-├── contracts/
-│   └── openapi.json
 └── tasks.md              # Se genera en la fase /speckit-tasks
+
+specs/contracts/
+└── openapi.json          # Contrato canónico compartido del Backend
 ```
 
 ### Código fuente (raíz del repositorio)
@@ -63,11 +64,9 @@ src/
 tests/
 └── health.test.js        # Pruebas de ruta y contrato
 
-specs/001-health-endpoint/contracts/
-└── openapi.json          # Artefacto OpenAPI generado y versionado
 ```
 
-**Decisión de estructura**: Servicio backend único. Separar la creación de la app del arranque del servidor permite probar la ruta con `fastify.inject()` sin abrir un puerto. El contrato generado se mantiene como artefacto versionado para la coordinación federada.
+**Decisión de estructura**: Servicio backend único. Separar la creación de la app del arranque del servidor permite probar la ruta con `fastify.inject()` sin abrir un puerto. El contrato OpenAPI compartido tiene una única ubicación canónica en `specs/contracts/openapi.json`; las features lo referencian en lugar de mantener copias.
 
 ## Registro de complejidad
 

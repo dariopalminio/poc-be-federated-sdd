@@ -9,7 +9,7 @@ try {
   const document = app.swagger();
   const outputPath = resolve(
     process.cwd(),
-    "specs/001-health-endpoint/contracts/openapi.json",
+    "specs/contracts/openapi.json",
   );
 
   await writeFile(outputPath, `${JSON.stringify(document, null, 2)}\n`, "utf8");

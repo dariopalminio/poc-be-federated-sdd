@@ -22,7 +22,7 @@ test("generated OpenAPI matches the versioned public health contract", async (co
   const generated = app.swagger();
   const versioned = JSON.parse(
     await readFile(
-      new URL("../specs/001-health-endpoint/contracts/openapi.json", import.meta.url),
+      new URL("../specs/contracts/openapi.json", import.meta.url),
       "utf8",
     ),
   );

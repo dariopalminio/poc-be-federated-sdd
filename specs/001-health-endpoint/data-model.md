@@ -10,7 +10,7 @@ Representación de la respuesta exitosa de `GET /health`.
 
 - La respuesta no contiene campos adicionales.
 - No se persiste ni se identifica una instancia de resultado; cada consulta produce la misma representación mientras el servicio pueda responder.
-- El contrato HTTP completo está definido en [contracts/openapi.json](contracts/openapi.json).
+- El contrato HTTP canónico está definido en [specs/contracts/openapi.json](../contracts/openapi.json).
 
 ## Persistencia y relaciones
 

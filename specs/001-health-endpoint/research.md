@@ -13,10 +13,10 @@
 
 ### Contrato OpenAPI
 
-- **Decisión**: Proponer OpenAPI 3.1.0 en `contracts/openapi.json`, generado desde el esquema de respuesta registrado en Fastify.
+- **Decisión**: Mantener OpenAPI 3.1.0 en `specs/contracts/openapi.json`, generado desde el esquema de respuesta registrado en Fastify.
 - **Justificación**: El esquema puede restringir `status` al valor constante `ok`; la versión elegida es compatible con la generación dinámica documentada por `@fastify/swagger`.
 - **Alternativas consideradas**: Mantener un documento manual o elegir OpenAPI 3.0.3. El documento manual puede divergir del esquema de la ruta; la versión final debe coordinarse con el consumidor.
-- **Límite federado**: El manifiesto de origen declara `shared_contracts: []`. El artefacto local no se considera una revisión compartida ni demuestra compatibilidad del Frontend. El Hub debe registrar la ruta y el commit inmutable en una nueva revisión antes del consumo federado.
+- **Límite federado**: La última revisión del Hub fija el contrato anterior en la ruta y el commit previos. El contrato en la nueva ruta queda como candidato hasta que el Hub actualice `shared_contracts` con esta ruta y el commit publicado que lo contiene.
 
 ### Pruebas
 
