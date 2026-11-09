@@ -22,15 +22,15 @@ description: "Tareas para implementar el endpoint de salud"
 
 **Propósito**: Inicializar el proyecto Node.js con TypeScript.
 
-- [ ] T001 [P] Crear `package.json` con Node.js 26, TypeScript, Fastify, `@fastify/swagger` y scripts `build`, `start`, `test` y `contract:generate`.
-- [ ] T002 [P] Crear `tsconfig.json` con modo estricto, salida compilada en `dist/` y configuración compatible con Node.js.
-- [ ] T003 Generar `package-lock.json` instalando las dependencias declaradas en `package.json`.
+- [X] T001 [P] Crear `package.json` con Node.js 26, TypeScript, Fastify, `@fastify/swagger` y scripts `build`, `start`, `test` y `contract:generate`.
+- [X] T002 [P] Crear `tsconfig.json` con modo estricto, salida compilada en `dist/` y configuración compatible con Node.js.
+- [X] T003 Generar `package-lock.json` instalando las dependencias declaradas en `package.json`.
 
 ## Fase 2: Fundamentos
 
 **Propósito**: Preparar la aplicación HTTP y el generador del contrato antes de completar la historia.
 
-- [ ] T004 Crear la fábrica de aplicación `src/app.ts`, inicializar Fastify, registrar `@fastify/swagger` antes de las rutas y exportar la aplicación para su reutilización.
+- [X] T004 Crear la fábrica de aplicación `src/app.ts`, inicializar Fastify, registrar `@fastify/swagger` antes de las rutas y exportar la aplicación para su reutilización.
 
 **Checkpoint**: El proyecto compila y la fábrica Fastify puede inicializarse sin abrir un puerto.
 
@@ -40,9 +40,9 @@ description: "Tareas para implementar el endpoint de salud"
 
 **Criterios de prueba independiente**: Sin credenciales, `GET /health` devuelve HTTP 200 y exactamente `{"status":"ok"}`. El contrato OpenAPI declara la operación, la respuesta 200 y el esquema requerido de `status`.
 
-- [ ] T005 [US1] Registrar `GET /health` en `src/app.ts` sin autenticación y con respuesta JSON cuyo esquema requiere `status` constante `ok` y rechaza propiedades adicionales.
-- [ ] T006 [P] [US1] Crear `src/server.ts` para iniciar la aplicación exportada por `src/app.ts` en el puerto de `PORT`, usando `3000` como valor local predeterminado.
-- [ ] T007 [US1] Crear `src/generate-openapi.ts` para generar OpenAPI desde el esquema de Fastify y escribir `specs/001-health-endpoint/contracts/openapi.json` con `GET /health` y seguridad vacía.
+- [X] T005 [US1] Registrar `GET /health` en `src/app.ts` sin autenticación y con respuesta JSON cuyo esquema requiere `status` constante `ok` y rechaza propiedades adicionales.
+- [X] T006 [P] [US1] Crear `src/server.ts` para iniciar la aplicación exportada por `src/app.ts` en el puerto de `PORT`, usando `3000` como valor local predeterminado.
+- [X] T007 [US1] Crear `src/generate-openapi.ts` para generar OpenAPI desde el esquema de Fastify y escribir `specs/001-health-endpoint/contracts/openapi.json` con `GET /health` y seguridad vacía.
 
 **Checkpoint**: La historia es demostrable de manera independiente mediante la respuesta HTTP y el contrato generado.
 
@@ -50,7 +50,7 @@ description: "Tareas para implementar el endpoint de salud"
 
 **Propósito**: Confirmar que la guía de validación coincide con los scripts y artefactos implementados.
 
-- [ ] T008 Revisar y ejecutar `specs/001-health-endpoint/quickstart.md` con los scripts de `package.json`; documentar cualquier comando que no pueda ejecutarse por falta de configuración del proyecto.
+- [X] T008 Revisar y ejecutar `specs/001-health-endpoint/quickstart.md` con los scripts de `package.json`; documentar cualquier comando que no pueda ejecutarse por falta de configuración del proyecto.
 
 ## Dependencias y orden de ejecución
 

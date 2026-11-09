@@ -20,7 +20,9 @@ npm test
 npm run contract:generate
 ```
 
-Las pruebas deberán verificar:
+`npm test` ejecuta `node --test`. Actualmente no hay archivos de prueba, por lo que el runner termina con cero tests; ese resultado no constituye cobertura automatizada del comportamiento.
+
+Cuando se añadan pruebas automatizadas, deberán verificar:
 
 - `GET /health` funciona sin credenciales y responde HTTP 200.
 - El `Content-Type` es JSON y el cuerpo es exactamente `{"status":"ok"}`.
