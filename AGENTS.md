@@ -36,6 +36,13 @@ Se desacopla formalmente el Plano de Coordinación Estratégico del Plano de Eje
 └──────────────────────────────────┘        └──────────────────────────────────┘
 ```
 
+### Repositorios
+
+Backend (este repositorio proveedor): https://github.com/dariopalminio/poc-be-federated-sdd
+Hub (repositorio transversal): https://github.com/dariopalminio/poc-cross-hub-federated-sdd
+Frontend (repositorio frontend consumidor): https://github.com/dariopalminio/poc-fe-federated-sdd
+
+
 ## Reglas de federación
 
 - Consulta [AGENTS.template.md](AGENTS.template.md) para conocer el contrato completo de federación, los roles de los repositorios y los requisitos de entrega.
