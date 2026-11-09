@@ -61,7 +61,7 @@ src/
 └── server.ts             # Inicia el servidor HTTP
 
 tests/
-└── health.test.ts        # Pruebas de ruta y contrato
+└── health.test.js        # Pruebas de ruta y contrato
 
 specs/001-health-endpoint/contracts/
 └── openapi.json          # Artefacto OpenAPI generado y versionado

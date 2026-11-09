@@ -1,8 +1,8 @@
 <!--
 Sync Impact Report
-- Version: plantilla sin versión -> 1.0.0 (constitución inicial)
-- Principios definidos: I. Alcance federado; II. Trazabilidad inmutable; III. Propiedad del contrato API; IV. Responsabilidad local; V. Verificación basada en evidencia
-- Secciones añadidas: Restricciones del proyecto; Flujo de desarrollo
+- Version: 1.0.0 -> 1.1.0 (nuevo principio de pruebas unitarias obligatorias)
+- Principio añadido: VI. Pruebas unitarias obligatorias
+- Secciones añadidas: ninguna
 - Secciones eliminadas: ninguna
 - TODO: confirmar la fecha original de ratificación
 Este informe temporal debe eliminarse antes de confirmar el cambio.
@@ -27,6 +27,9 @@ Este repositorio mantiene su especificación, plan, tareas, implementación y ve
 ### V. Verificación basada en evidencia
 Las afirmaciones de compatibilidad y calidad MUST respaldarse con verificaciones disponibles y resultados observados. Los comandos de build, pruebas, lint y tipos MUST obtenerse de manifiestos de proyecto o CI existentes; no se deben inventar. Todo control que no pueda ejecutarse MUST declararse como no verificado, nunca como aprobado.
 
+### VI. Pruebas unitarias obligatorias
+Todo cambio que implemente o modifique comportamiento de software MUST incluir al menos una prueba unitaria automatizada que verifique el comportamiento nuevo o modificado. Esa prueba MUST ejecutarse y pasar antes de considerar terminada la implementación. Los cambios exclusivamente documentales o de metadatos no requieren pruebas unitarias.
+
 ## Restricciones del Proyecto
 
 - La constitución, las especificaciones aprobadas y los manifiestos reales definen las decisiones del proyecto. Las plantillas de ejemplo no constituyen políticas ni decisiones tecnológicas aprobadas.
@@ -46,4 +49,4 @@ Esta constitución rige la ejecución técnica local. La especificación princip
 
 La versión sigue SemVer: MAJOR para eliminar o redefinir de forma incompatible principios o reglas; MINOR para añadir principios o ampliar materialmente las reglas; PATCH para aclaraciones y cambios editoriales sin efecto normativo. Las revisiones de cambios MUST comprobar el cumplimiento de los principios aplicables y distinguir la evidencia obtenida de los controles pendientes.
 
-**Versión**: 1.0.0 | **Ratificada**: TODO(RATIFICATION_DATE): fecha original pendiente de confirmar | **Última enmienda**: 2026-11-09
+**Versión**: 1.1.0 | **Ratificada**: TODO(RATIFICATION_DATE): fecha original pendiente de confirmar | **Última enmienda**: 2026-11-09

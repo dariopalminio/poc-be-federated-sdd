@@ -1,8 +1,6 @@
 # Guía de validación: Health Endpoint
 
-## Estado
-
-Esta guía describe la validación prevista después de que la implementación cree el manifiesto de dependencias, el lockfile y los scripts npm. Esos archivos aún no existen en el repositorio, por lo que los comandos siguientes son propuestas del plan y no se han ejecutado.
+Esta guía describe la validación local del servicio y su contrato. El proyecto Node.js, el lockfile, los scripts npm y la suite de pruebas están configurados en el repositorio.
 
 ## Prerrequisitos
 
@@ -11,7 +9,7 @@ Esta guía describe la validación prevista después de que la implementación c
 
 ## Validación automatizada
 
-La implementación deberá exponer estos scripts en `package.json`:
+Ejecuta estos scripts desde la raíz del repositorio:
 
 ```powershell
 npm ci
@@ -20,14 +18,12 @@ npm test
 npm run contract:generate
 ```
 
-`npm test` ejecuta `node --test`. Actualmente no hay archivos de prueba, por lo que el runner termina con cero tests; ese resultado no constituye cobertura automatizada del comportamiento.
-
-Cuando se añadan pruebas automatizadas, deberán verificar:
+`npm test` compila el proyecto y ejecuta la suite con `node:test`. Las pruebas verifican:
 
 - `GET /health` funciona sin credenciales y responde HTTP 200.
 - El `Content-Type` es JSON y el cuerpo es exactamente `{"status":"ok"}`.
-- El OpenAPI generado declara `GET /health`, una respuesta 200 y el esquema exacto de `status`.
-- El artefacto generado coincide con `contracts/openapi.json` versionado.
+- El OpenAPI generado declara `GET /health`, una respuesta 200 y `status` restringido al valor `ok`.
+- El documento OpenAPI generado coincide con `contracts/openapi.json` versionado.
 
 ## Comprobación manual
 
