@@ -16,7 +16,7 @@
 - **Decisión**: Mantener OpenAPI 3.1.0 en `specs/contracts/openapi.json`, generado desde el esquema de respuesta registrado en Fastify.
 - **Justificación**: El esquema puede restringir `status` al valor constante `ok`; la versión elegida es compatible con la generación dinámica documentada por `@fastify/swagger`.
 - **Alternativas consideradas**: Mantener un documento manual o elegir OpenAPI 3.0.3. El documento manual puede divergir del esquema de la ruta; la versión final debe coordinarse con el consumidor.
-- **Límite federado**: La última revisión del Hub fija el contrato anterior en la ruta y el commit previos. El contrato en la nueva ruta queda como candidato hasta que el Hub actualice `shared_contracts` con esta ruta y el commit publicado que lo contiene.
+- **Límite federado**: La revisión Hub `b163606880e4b058d5c3ab7766878f378d928e9b` registra `health-api` en `specs/contracts/openapi.json`, fijado al commit Backend `535a33201c0b937a41cc8dba5b40d639d448c5ed`. La adopción efectiva por el Frontend depende de que consuma esa revisión.
 
 ### Pruebas
 

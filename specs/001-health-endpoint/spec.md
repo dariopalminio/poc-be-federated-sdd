@@ -6,7 +6,7 @@
 
 **Status**: Draft
 
-**Input**: Derivada de `specs/001-health-status/spec.md` en la revisión `8601464b8be53de3ccc5fe848b12540f1c0b0159`, para el rol `backend-health` y los requisitos asignados `FR-001`, `FR-002`, `FR-003` y `FR-006`.
+**Input**: Derivada de `specs/001-health-status/spec.md` en la revisión `b163606880e4b058d5c3ab7766878f378d928e9b`, para el rol `backend-health` y los requisitos asignados `FR-001`, `FR-002`, `FR-003` y `FR-006`.
 
 ## Clarifications
 
@@ -58,4 +58,4 @@ La especificación padre no define casos límite específicos para el Backend.
 
 - El significado de `ok` se limita a que el servicio puede responder a la consulta; no garantiza la salud de dependencias externas ni constituye monitorización integral.
 - El Backend es el propietario del contrato OpenAPI, conforme a la especificación principal.
-- En la revisión de origen, el manifiesto declara `shared_contracts: []`. La especificación principal indica que se registrará la revisión exacta del contrato cuando el artefacto canónico y su commit estén disponibles; hasta entonces, la relación con el contrato está pendiente y no se debe declarar alineación contractual.
+- En la revisión de origen, el manifiesto registra `health-api` en `https://github.com/dariopalminio/poc-be-federated-sdd`, con ruta `specs/contracts/openapi.json` y revisión Backend `535a33201c0b937a41cc8dba5b40d639d448c5ed`. La adopción por el Frontend solo puede afirmarse cuando ese consumidor use la revisión declarada.

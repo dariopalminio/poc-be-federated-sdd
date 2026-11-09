@@ -32,10 +32,10 @@ Implementar `GET /health` como una operación pública que responda HTTP 200 con
 
 *GATE: aprobado para el diseño y la contribución local; la adopción por consumidores depende de registrar el contrato en el Hub.*
 
-- **Alcance federado**: Cumple. La fuente verificada es el commit `8601464b8be53de3ccc5fe848b12540f1c0b0159`; el manifiesto asigna `backend-health`, esta ruta local y `FR-001`, `FR-002`, `FR-003` y `FR-006`.
+- **Alcance federado**: Cumple. La fuente verificada es el commit `b163606880e4b058d5c3ab7766878f378d928e9b`; el manifiesto asigna `backend-health`, esta ruta local y `FR-001`, `FR-002`, `FR-003` y `FR-006`.
 - **Trazabilidad**: Cumple. `origin.yaml` conserva la misma revisión completa y los mismos requisitos.
 - **Propiedad del contrato**: Cumple localmente. El Backend define el contrato OpenAPI canónico.
-- **Límite de alineación**: La última revisión publicada del Hub fija el contrato anterior en su ruta y commit previos. Este cambio publica el contrato en `specs/contracts/openapi.json`; no se afirma alineación con consumidores hasta que el Hub actualice `shared_contracts` con esta ruta y el nuevo commit inmutable.
+- **Contrato compartido**: El manifiesto de esta revisión registra `health-api` en `specs/contracts/openapi.json`, propiedad del Backend, fijado al commit `535a33201c0b937a41cc8dba5b40d639d448c5ed`. La adopción efectiva por el Frontend requiere que ese repositorio consuma la revisión declarada.
 - **Verificación**: Las pruebas y comandos de proyecto se proponen aquí para su incorporación al manifiesto futuro; no existen actualmente y no se reportan como ejecutados.
 
 ## Estructura del proyecto

@@ -37,4 +37,4 @@ Resultado esperado: estado HTTP 200, tipo de contenido JSON y cuerpo `{"status":
 
 ## Límite de integración
 
-Este resultado valida el artefacto backend local. No demuestra alineación con el Frontend hasta que el Hub publique una revisión inmutable que registre la ruta y el commit del contrato compartido.
+Este resultado valida el servicio y el artefacto Backend fijado por el Hub en `specs/contracts/openapi.json` en el commit `535a33201c0b937a41cc8dba5b40d639d448c5ed`. No demuestra por sí solo que el Frontend ya consuma esa revisión.

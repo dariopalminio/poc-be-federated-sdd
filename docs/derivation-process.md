@@ -1,5 +1,7 @@
 # Spec Derivation
 
+## Alternativa 1: Proceso de Spec Derivation
+
 Inicialización y derivación trazable de la spec hija desde la padre. Abarca preparar el repositorio, fijar la revisión de la iniciativa, crear origin.yaml, derivar la spec local y validar su correspondencia con el manifiesto padre.
 
 SPEC-NAME: 001-health-endpoint
@@ -16,3 +18,6 @@ Para crear una spec hija derivada de una spec padre seguir este flujo:
 
 4. Crea specs/[SPEC-NAME]/spec.md derivándola de la spec padre. Incluye esos requisitos y sus criterios aplicables; no incorpores FR-* que no correspondan a este repositorio. Conserva los IDs para permitir comprobar la trazabilidad.
 
+## Alternativa 2: Delegar proceso de Spec Derivation al speckit-specify:
+
+Prompt: "/speckit-specify Inicialización y derivación trazable de la spec hija desde la spec padre specs\001-health-status. Abarca preparar el repositorio, fijar la revisión de la iniciativa, crear origin.yaml, derivar la spec local y validar su correspondencia con el manifiesto padre."

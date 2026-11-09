@@ -87,7 +87,7 @@ Después de T005, ejecutar T007 para generar el contrato OpenAPI.
 1. Completar setup y fundamentos.
 2. Implementar la historia P1 y generar el contrato local.
 3. Validar la respuesta y el contrato usando la guía de quickstart.
-4. No declarar alineación con consumidores hasta que el Hub registre `specs/contracts/openapi.json` y la revisión Backend inmutable que contiene el artefacto. Esa coordinación queda fuera de las tareas de este repositorio.
+4. El Hub ya registra `specs/contracts/openapi.json` y su revisión Backend inmutable. La adopción efectiva por el Frontend depende de que ese repositorio consuma la revisión declarada.
 
 ## Resumen
 
