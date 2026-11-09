@@ -56,3 +56,4 @@ Frontend (repositorio frontend consumidor): https://github.com/dariopalminio/poc
 - Consulta `.specify/templates/` para conocer la estructura esperada de los artefactos de funcionalidades y `.specify/workflows/speckit/workflow.yml` para el ciclo integrado con puntos de revisión.
 - Cuando se añadan manifiestos de proyecto y configuración de CI, obtén de ellos los comandos de build, pruebas, lint y comprobación de tipos. Nunca inventes comandos ni informes como aprobadas las comprobaciones que no se hayan ejecutado.
 - Limita el trabajo al alcance asignado a este repositorio. Propón primero en la especificación del Hub los cambios que afecten a varios repositorios.
+- Escribe la documentación en español.
