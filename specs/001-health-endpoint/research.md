@@ -13,10 +13,10 @@
 
 ### Contrato OpenAPI
 
-- **Decisión**: Mantener OpenAPI 3.1.0 en `specs/contracts/openapi.json`, generado desde el esquema de respuesta registrado en Fastify.
-- **Justificación**: El esquema puede restringir `status` al valor constante `ok`; la versión elegida es compatible con la generación dinámica documentada por `@fastify/swagger`.
-- **Alternativas consideradas**: Mantener un documento manual o elegir OpenAPI 3.0.3. El documento manual puede divergir del esquema de la ruta; la versión final debe coordinarse con el consumidor.
-- **Límite federado**: La revisión Hub `b163606880e4b058d5c3ab7766878f378d928e9b` registra `health-api` en `specs/contracts/openapi.json`, fijado al commit Backend `535a33201c0b937a41cc8dba5b40d639d448c5ed`. La adopción efectiva por el Frontend depende de que consuma esa revisión.
+- **Decisión**: Generar YAML OpenAPI 3.0.3 en `specs/contracts/openapi/health-api.yaml` desde el esquema de respuesta registrado en Fastify.
+- **Justificación**: Cumple la política corporativa; `@fastify/swagger` serializa el documento a YAML y transforma la constante `status` en el `enum` equivalente admitido por OpenAPI 3.0.
+- **Alternativas consideradas**: JSON y OpenAPI 3.1.x quedan descartados por la política del repositorio.
+- **Límite federado**: El manifiesto actual del Hub todavía fija `specs/contracts/openapi.json` y OpenAPI 3.1.0 en el commit Backend `535a33201c0b937a41cc8dba5b40d639d448c5ed`. El YAML nuevo es un candidato local hasta actualizar ese manifiesto con su ruta y el SHA Backend que lo publique.
 
 ### Pruebas
 
@@ -33,5 +33,5 @@
 ## Fuentes
 
 - [Pruebas de Fastify](https://fastify.dev/docs/latest/Guides/Testing/): documenta `fastify.inject()` y su integración con `node:test`.
-- [@fastify/swagger](https://github.com/fastify/fastify-swagger): documenta generación desde esquemas de ruta y soporte de OpenAPI 3.1.
+- [@fastify/swagger](https://github.com/fastify/fastify-swagger): documenta generación desde esquemas de ruta y salida YAML.
 - [Runner de pruebas de Node.js](https://nodejs.org/api/test.html): documenta el módulo integrado `node:test`.

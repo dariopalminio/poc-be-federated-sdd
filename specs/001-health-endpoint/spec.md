@@ -59,3 +59,4 @@ La especificación padre no define casos límite específicos para el Backend.
 - El significado de `ok` se limita a que el servicio puede responder a la consulta; no garantiza la salud de dependencias externas ni constituye monitorización integral.
 - El Backend es el propietario del contrato OpenAPI, conforme a la especificación principal.
 - En la revisión de origen, el manifiesto registra `health-api` en `https://github.com/dariopalminio/poc-be-federated-sdd`, con ruta `specs/contracts/openapi.json` y revisión Backend `535a33201c0b937a41cc8dba5b40d639d448c5ed`. La adopción por el Frontend solo puede afirmarse cuando ese consumidor use la revisión declarada.
+- El archivo YAML OpenAPI 3.0.3 en `specs/contracts/openapi/health-api.yaml` es un candidato local conforme a la política actual; no es el contrato compartido fijado por la revisión de origen hasta que el Hub actualice su ruta y SHA.

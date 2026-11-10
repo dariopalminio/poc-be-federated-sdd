@@ -6,7 +6,7 @@ export async function buildApp() {
 
   await app.register(swagger, {
     openapi: {
-      openapi: "3.1.0",
+      openapi: "3.0.3",
       info: {
         title: "Backend Health API",
         version: "0.1.0",

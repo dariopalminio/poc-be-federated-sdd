@@ -1,0 +1,26 @@
+openapi: 3.0.3
+info:
+  title: Backend Health API
+  version: 0.1.0
+components:
+  schemas: {}
+paths:
+  /health:
+    get:
+      security: []
+      responses:
+        "200":
+          description: El servicio puede responder a la consulta.
+          content:
+            application/json:
+              schema:
+                description: El servicio puede responder a la consulta.
+                type: object
+                required:
+                  - status
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - ok
+                additionalProperties: false

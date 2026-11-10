@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
+import { parse } from "yaml";
 import { buildApp } from "../dist/app.js";
 
 test("GET /health returns the public success response", async (context) => {
@@ -19,10 +20,12 @@ test("generated OpenAPI matches the versioned public health contract", async (co
   context.after(() => app.close());
   await app.ready();
 
-  const generated = app.swagger();
-  const versioned = JSON.parse(
+  const generatedYaml = app.swagger({ yaml: true });
+  assert.equal(typeof generatedYaml, "string");
+  const generated = parse(generatedYaml);
+  const versioned = parse(
     await readFile(
-      new URL("../specs/contracts/openapi.json", import.meta.url),
+      new URL("../specs/contracts/openapi/health-api.yaml", import.meta.url),
       "utf8",
     ),
   );
@@ -30,6 +33,8 @@ test("generated OpenAPI matches the versioned public health contract", async (co
   const responseSchema = operation.responses["200"].content["application/json"].schema;
 
   assert.deepEqual(generated, versioned);
+  assert.equal(versioned.openapi, "3.0.3");
+  assert.equal(versioned.info.version, "0.1.0");
   assert.deepEqual(operation.security, []);
   assert.deepEqual(responseSchema.required, ["status"]);
   assert.deepEqual(responseSchema.properties.status.enum, ["ok"]);

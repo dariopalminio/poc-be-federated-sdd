@@ -6,7 +6,7 @@
 
 ## Summary
 
-Implementar `GET /health` como una operación pública que responda HTTP 200 con el JSON exacto `{"status":"ok"}` cuando el servicio pueda responder. La propuesta técnica usa Node.js con TypeScript, Fastify y un contrato OpenAPI generado desde el esquema de respuesta de la ruta.
+Implementar `GET /health` como una operación pública que responda HTTP 200 con el JSON exacto `{"status":"ok"}` cuando el servicio pueda responder. La propuesta técnica usa Node.js con TypeScript, Fastify y un contrato YAML OpenAPI 3.0.3 generado desde el esquema de respuesta de la ruta.
 
 ## Technical Context
 
@@ -35,7 +35,7 @@ Implementar `GET /health` como una operación pública que responda HTTP 200 con
 - **Alcance federado**: Cumple. La fuente verificada es el commit `b163606880e4b058d5c3ab7766878f378d928e9b`; el manifiesto asigna `backend-health`, esta ruta local y `FR-001`, `FR-002`, `FR-003` y `FR-006`.
 - **Trazabilidad**: Cumple. `origin.yaml` conserva la misma revisión completa y los mismos requisitos.
 - **Propiedad del contrato**: Cumple localmente. El Backend define el contrato OpenAPI canónico.
-- **Contrato compartido**: El manifiesto de esta revisión registra `health-api` en `specs/contracts/openapi.json`, propiedad del Backend, fijado al commit `535a33201c0b937a41cc8dba5b40d639d448c5ed`. La adopción efectiva por el Frontend requiere que ese repositorio consuma la revisión declarada.
+- **Contrato compartido**: El manifiesto actual del Hub todavía fija JSON/OpenAPI 3.1.0 en `specs/contracts/openapi.json` y Backend `535a33201c0b937a41cc8dba5b40d639d448c5ed`. El YAML/OpenAPI 3.0.3 de `specs/contracts/openapi/health-api.yaml` es un candidato local; el Hub debe actualizar ruta y revisión antes de afirmar alineación.
 - **Verificación**: Las pruebas y comandos de proyecto se proponen aquí para su incorporación al manifiesto futuro; no existen actualmente y no se reportan como ejecutados.
 
 ## Estructura del proyecto
@@ -51,7 +51,8 @@ specs/001-health-endpoint/
 └── tasks.md              # Se genera en la fase /speckit-tasks
 
 specs/contracts/
-└── openapi.json          # Contrato canónico compartido del Backend
+└── openapi/
+	└── health-api.yaml   # Contrato OpenAPI 3.0.3 en YAML
 ```
 
 ### Código fuente (raíz del repositorio)
@@ -66,7 +67,7 @@ tests/
 
 ```
 
-**Decisión de estructura**: Servicio backend único. Separar la creación de la app del arranque del servidor permite probar la ruta con `fastify.inject()` sin abrir un puerto. El contrato OpenAPI compartido tiene una única ubicación canónica en `specs/contracts/openapi.json`; las features lo referencian en lugar de mantener copias.
+**Decisión de estructura**: Servicio backend único. Separar la creación de la app del arranque del servidor permite probar la ruta con `fastify.inject()` sin abrir un puerto. Los contratos se organizan por protocolo en subdirectorios de `specs/contracts/`; las features referencian el contrato en lugar de mantener copias. La adopción de `specs/contracts/openapi/health-api.yaml` queda pendiente de actualización en el Hub.
 
 ## Registro de complejidad
 

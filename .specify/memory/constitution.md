@@ -1,8 +1,8 @@
 <!--
 Sync Impact Report
-- Version: 1.0.0 -> 1.1.0 (nuevo principio de pruebas unitarias obligatorias)
-- Principio añadido: VI. Pruebas unitarias obligatorias
-- Secciones añadidas: ninguna
+- Version: 1.4.0 -> 1.5.0 (estructura por protocolo para contratos compartidos)
+- Principios modificados: ninguno
+- Secciones añadidas: ninguna; se amplía Restricciones del Proyecto
 - Secciones eliminadas: ninguna
 - TODO: confirmar la fecha original de ratificación
 Este informe temporal debe eliminarse antes de confirmar el cambio.
@@ -35,6 +35,8 @@ Todo cambio que implemente o modifique comportamiento de software MUST incluir a
 - La constitución, las especificaciones aprobadas y los manifiestos reales definen las decisiones del proyecto. Las plantillas de ejemplo no constituyen políticas ni decisiones tecnológicas aprobadas.
 - Las herramientas, comandos y automatizaciones solo se consideran disponibles cuando están presentes en la configuración del repositorio. Las instrucciones de federación completas se mantienen en [AGENTS.template.md](../../AGENTS.template.md).
 - La ausencia de una revisión verificable del Hub, de un alcance confirmado o de una revisión inmutable del contrato compartido impide afirmar alineación para el trabajo que dependa de esos datos.
+- Las especificaciones OpenAPI MUST usar una versión `3.0.x`. El campo `openapi` MUST existir y comenzar con `3.0.`; representa la versión del estándar, mientras que `info.version` representa la versión del contrato. Swagger 2.0 y OpenAPI 3.1.x MUST NOT usarse salvo que exista una decisión corporativa explícita.
+- Los contratos OpenAPI MUST estar serializados en YAML y ubicarse en `specs/contracts/openapi/<contract-name>.yaml`. Otros protocolos MUST usar su propio subdirectorio bajo `specs/contracts/` (por ejemplo, `specs/contracts/asyncapi/`).
 
 ## Flujo de Desarrollo
 
@@ -49,4 +51,4 @@ Esta constitución rige la ejecución técnica local. La especificación princip
 
 La versión sigue SemVer: MAJOR para eliminar o redefinir de forma incompatible principios o reglas; MINOR para añadir principios o ampliar materialmente las reglas; PATCH para aclaraciones y cambios editoriales sin efecto normativo. Las revisiones de cambios MUST comprobar el cumplimiento de los principios aplicables y distinguir la evidencia obtenida de los controles pendientes.
 
-**Versión**: 1.1.0 | **Ratificada**: TODO(RATIFICATION_DATE): fecha original pendiente de confirmar | **Última enmienda**: 2026-11-09
+**Versión**: 1.5.0 | **Ratificada**: TODO(RATIFICATION_DATE): fecha original pendiente de confirmar | **Última enmienda**: 2026-11-09

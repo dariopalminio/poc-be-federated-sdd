@@ -22,8 +22,9 @@ npm run contract:generate
 
 - `GET /health` funciona sin credenciales y responde HTTP 200.
 - El `Content-Type` es JSON y el cuerpo es exactamente `{"status":"ok"}`.
-- El OpenAPI generado declara `GET /health`, una respuesta 200 y `status` restringido al valor `ok`.
-- El documento OpenAPI generado coincide con `specs/contracts/openapi.json` versionado.
+- El documento OpenAPI YAML generado declara OpenAPI 3.0.3, `GET /health`, una respuesta 200 y `status` restringido al valor `ok`.
+- `openapi` representa la versión del estándar y `info.version` la versión del contrato.
+- El documento OpenAPI generado coincide con `specs/contracts/openapi/health-api.yaml` versionado.
 
 ## Comprobación manual
 
@@ -37,4 +38,4 @@ Resultado esperado: estado HTTP 200, tipo de contenido JSON y cuerpo `{"status":
 
 ## Límite de integración
 
-Este resultado valida el servicio y el artefacto Backend fijado por el Hub en `specs/contracts/openapi.json` en el commit `535a33201c0b937a41cc8dba5b40d639d448c5ed`. No demuestra por sí solo que el Frontend ya consuma esa revisión.
+Este resultado valida el servicio y el candidato local `specs/contracts/openapi/health-api.yaml`. El Hub todavía fija JSON/OpenAPI 3.1.0 en una revisión Backend anterior; no se debe declarar alineación con consumidores hasta que se actualice la ruta y el SHA inmutable.
