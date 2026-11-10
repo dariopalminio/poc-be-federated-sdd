@@ -46,8 +46,8 @@ Frontend (repositorio frontend consumidor): https://github.com/dariopalminio/poc
 ## Reglas de federación
 
 - Consulta [AGENTS.template.md](AGENTS.template.md) para conocer el contrato completo de federación, los roles de los repositorios y los requisitos de entrega.
-- Antes de derivar o modificar una especificación local de una funcionalidad, localiza la especificación principal y `links-manifest.yaml` en el mismo commit inmutable del Hub. Usa esa entrada del manifiesto para verificar el rol de este repositorio, la ruta de la especificación local y el alcance de los requisitos.
-- Mantén `origin.yaml` junto a la especificación local y fija el SHA completo del commit de origen. Si no se pueden verificar la revisión principal, el alcance o el contrato compartido, detente e informa del bloqueo; no hagas suposiciones ni afirmes que existe alineación.
+- Antes de derivar o modificar una especificación local de una funcionalidad, localiza la especificación principal y `parent-spec-manifest.yaml` en el mismo commit inmutable del Hub. Usa esa entrada del manifiesto para verificar el rol de este repositorio, la ruta de la especificación local y el alcance de los requisitos.
+- Mantén `spec-origin.yaml` junto a la especificación local y fija el SHA completo del commit de origen. Si no se pueden verificar la revisión principal, el alcance o el contrato compartido, detente e informa del bloqueo; no hagas suposiciones ni afirmes que existe alineación.
 - Este repositorio es el propietario canónico del contrato OpenAPI del backend. Los consumidores deben usar la revisión inmutable exacta que declara el manifiesto principal; coordina con ellos cualquier cambio incompatible.
 
 ## Workflow de Spec Kit

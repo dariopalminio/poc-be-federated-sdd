@@ -13,10 +13,10 @@ Este informe temporal debe eliminarse antes de confirmar el cambio.
 ## Principios Fundamentales
 
 ### I. Alcance federado y autoridad
-La especificación principal del Hub y su `links-manifest.yaml`, en la misma revisión inmutable, son la fuente de verdad para el alcance transversal y la contribución asignada a este repositorio. El trabajo local MUST respetar ese alcance. Los cambios que afecten a varios repositorios MUST proponerse primero en la especificación del Hub.
+La especificación principal del Hub y su `parent-spec-manifest.yaml`, en la misma revisión inmutable, son la fuente de verdad para el alcance transversal y la contribución asignada a este repositorio. El trabajo local MUST respetar ese alcance. Los cambios que afecten a varios repositorios MUST proponerse primero en la especificación del Hub.
 
 ### II. Trazabilidad inmutable
-Cada especificación local MUST incluir un `origin.yaml` adyacente que identifique la iniciativa, el rol, los requisitos asignados y el SHA completo del commit del Hub que contiene tanto la especificación principal como el manifiesto. Antes de declarar alineación, MUST verificarse que esos datos coincidan con el manifiesto y que los contratos compartidos referenciados resuelvan a su propietario, ruta y revisión exactos. Si no puede verificarse algún dato, el trabajo dependiente queda bloqueado y la limitación MUST comunicarse; no se permite inferir ni sustituir revisiones.
+Cada especificación local MUST incluir un `spec-origin.yaml` adyacente que identifique la iniciativa, el rol, los requisitos asignados y el SHA completo del commit del Hub que contiene tanto la especificación principal como el manifiesto. Antes de declarar alineación, MUST verificarse que esos datos coincidan con el manifiesto y que los contratos compartidos referenciados resuelvan a su propietario, ruta y revisión exactos. Si no puede verificarse algún dato, el trabajo dependiente queda bloqueado y la limitación MUST comunicarse; no se permite inferir ni sustituir revisiones.
 
 ### III. Propiedad del contrato API
 Este repositorio es el propietario canónico del contrato OpenAPI del backend. Los repositorios consumidores MUST usar la revisión inmutable declarada por la iniciativa y no mantener una copia autoritativa independiente. Los cambios incompatibles MUST coordinarse con los consumidores y documentar una ruta de migración antes de adoptarse.
@@ -40,8 +40,8 @@ Todo cambio que implemente o modifique comportamiento de software MUST incluir a
 
 ## Flujo de Desarrollo
 
-1. Antes de derivar o modificar una especificación local, verificar en una misma revisión inmutable del Hub la especificación principal, el `links-manifest.yaml`, el rol del repositorio, la ruta local y los requisitos asignados.
-2. Confirmar que `origin.yaml` y las revisiones de contratos compartidos reflejen esa fuente. Resolver las ambigüedades locales con `/speckit-clarify`; elevar al Hub las ambigüedades que cambien el alcance transversal.
+1. Antes de derivar o modificar una especificación local, verificar en una misma revisión inmutable del Hub la especificación principal, el `parent-spec-manifest.yaml`, el rol del repositorio, la ruta local y los requisitos asignados.
+2. Confirmar que `spec-origin.yaml` y las revisiones de contratos compartidos reflejen esa fuente. Resolver las ambigüedades locales con `/speckit-clarify`; elevar al Hub las ambigüedades que cambien el alcance transversal.
 3. Planificar, desglosar tareas e implementar la contribución local mediante las skills disponibles de Spec Kit y las plantillas del repositorio. Revisar los artefactos en los puntos de control definidos por el workflow disponible.
 4. Al informar la finalización, identificar el commit de implementación, la revisión de origen del Hub, las revisiones de contratos compartidos, los requisitos cubiertos, los controles ejecutados y sus resultados, y las limitaciones pendientes.
 
