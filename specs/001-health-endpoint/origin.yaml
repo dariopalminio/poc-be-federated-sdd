@@ -1,7 +1,7 @@
 initiative_id: "001-health-status"
 hub_repo: "https://github.com/dariopalminio/poc-cross-hub-federated-sdd"
 spec_source: "specs/001-health-status/spec.md"
-source_revision: "905f492c2bb31bca52bf030a1c728c3d24d447bb"
+source_revision: 905f492c2bb31bca52bf030a1c728c3d24d447bb
 role: "backend-health"
 requirements:
   - "FR-001"
