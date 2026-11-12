@@ -9,9 +9,12 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "test": "npm run build && node --test",
     "contract:generate": "npm run build && node dist/generate-openapi.js",
-    "test:contract": "npm run build && node scripts/run-schemathesis.js"
+    "test": "npm run build && node --test",
+    "test:api": "npm run build && node --test tests/health.api.test.js",
+    "test:con": "npm run build && node --test tests/health.con.test.js",
+    "test:con:gen": "npm run build && node scripts/run-schemathesis.js",
+    "test:contract": "npm run test:con && npm run test:con:gen"
   },
   "dependencies": {
     "@fastify/swagger": "^9.0.0",
