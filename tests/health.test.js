@@ -15,6 +15,16 @@ test("GET /health returns the public success response", async (context) => {
   assert.deepEqual(response.json(), { status: "ok" });
 });
 
+test("unsupported methods on an existing route return 405", async (context) => {
+  const app = await buildApp();
+  context.after(() => app.close());
+
+  const response = await app.inject({ method: "QUERY", url: "/health" });
+
+  assert.equal(response.statusCode, 405);
+  assert.equal(response.headers.allow, "GET, HEAD");
+});
+
 test("generated OpenAPI matches the versioned public health contract", async (context) => {
   const app = await buildApp();
   context.after(() => app.close());

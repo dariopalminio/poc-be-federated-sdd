@@ -7,6 +7,8 @@
 
 # testing
 /coverage
+/.hypothesis/
+/.schemathesis/
 
 # next.js
 /.next/

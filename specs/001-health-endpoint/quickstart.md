@@ -5,7 +5,8 @@ Esta guía describe la validación local del servicio y su contrato. El proyecto
 ## Prerrequisitos
 
 - Node.js 26 LTS y npm.
-- Dependencias instaladas desde el lockfile que se incorporará con la implementación.
+- `uv`, para ejecutar Schemathesis mediante `uvx`.
+- Dependencias npm instaladas desde `package-lock.json` con `npm ci`.
 
 ## Validación automatizada
 
@@ -15,6 +16,7 @@ Ejecuta estos scripts desde la raíz del repositorio:
 npm ci
 npm run build
 npm test
+npm run qa:contract
 npm run contract:generate
 ```
 
@@ -26,9 +28,11 @@ npm run contract:generate
 - `openapi` representa la versión del estándar y `info.version` la versión del contrato.
 - El documento OpenAPI generado coincide con `specs/contracts/openapi/health-api.yaml` versionado.
 
+`npm run qa:contract` compila el proyecto, inicia la app en un puerto efímero y ejecuta Schemathesis 4.33.4 contra `specs/contracts/openapi/health-api.yaml`. No requiere iniciar el servidor aparte.
+
 ## Comprobación manual
 
-Después de iniciar el servicio mediante el script `start` que se definirá en `package.json`, consultar `http://localhost:3000/health`:
+Después de iniciar el servicio mediante `npm start`, consultar `http://localhost:3000/health`:
 
 ```powershell
 curl.exe --include http://localhost:3000/health
@@ -38,4 +42,4 @@ Resultado esperado: estado HTTP 200, tipo de contenido JSON y cuerpo `{"status":
 
 ## Límite de integración
 
-Este resultado valida el servicio y el candidato local `specs/contracts/openapi/health-api.yaml`. El Hub todavía fija JSON/OpenAPI 3.1.0 en una revisión Backend anterior; no se debe declarar alineación con consumidores hasta que se actualice la ruta y el SHA inmutable.
+El manifiesto del Hub fijado en `spec-origin.yaml` registra `health-api` en `specs/contracts/openapi/health-api.yaml` y fija una revisión Backend inmutable. Schemathesis valida el contrato local; antes de declarar alineación con el Frontend, verifica que consuma esa misma revisión.

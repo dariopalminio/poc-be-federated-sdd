@@ -10,7 +10,8 @@
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
     "test": "npm run build && node --test",
-    "contract:generate": "npm run build && node dist/generate-openapi.js"
+    "contract:generate": "npm run build && node dist/generate-openapi.js",
+    "test:contract": "npm run build && node scripts/run-schemathesis.js"
   },
   "dependencies": {
     "@fastify/swagger": "^9.0.0",

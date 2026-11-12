@@ -10,5 +10,6 @@ Comandos principales:
 
 - `npm run build`: compilar TypeScript.
 - `npm test`: compilar y ejecutar las pruebas.
+- `npm run qa:contract`: ejecutar Schemathesis contra el OpenAPI versionado y la app local. Requiere `uv` (`uvx`); usa Schemathesis 4.33.4.
 - `npm start`: iniciar el servidor en el puerto indicado por `PORT` o, por defecto, `3000`.
 - `npm run contract:generate`: generar el contrato OpenAPI local.

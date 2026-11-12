@@ -35,5 +35,19 @@ export async function buildApp() {
     async () => ({ status: "ok" }),
   );
 
+  app.addHook("onRequest", (request, reply, done) => {
+    const path = request.url.split("?")[0];
+    if (
+      path &&
+      !app.hasRoute({ method: request.method, url: path }) &&
+      app.hasRoute({ method: "GET", url: path })
+    ) {
+      reply.header("Allow", "GET, HEAD").code(405).send();
+      return;
+    }
+
+    done();
+  });
+
   return app;
 }
