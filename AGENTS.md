@@ -50,6 +50,9 @@ Frontend (repositorio frontend consumidor): https://github.com/dariopalminio/poc
 - Mantén `spec-origin.yaml` junto a la especificación local y fija el SHA completo del commit de origen. Si no se pueden verificar la revisión principal, el alcance o el contrato compartido, detente e informa del bloqueo; no hagas suposiciones ni afirmes que existe alineación.
 - Este repositorio es el propietario canónico del contrato OpenAPI del backend. Los consumidores deben usar la revisión inmutable exacta que declara el manifiesto principal; coordina con ellos cualquier cambio incompatible.
 
+## ADRs canónicos
+[Decisión 0001: ubicación canónica y vendoring de OpenAPI](https://github.com/dariopalminio/poc-cross-hub-federated-sdd/blob/master/docs/decisions/0001-ubicacion-canonica-y-vendoring-openapi.md)
+
 ## Workflow de Spec Kit
 
 - Comprueba primero la alineación con la federación. Después, usa las skills pertinentes de Spec Kit del repositorio para aclarar, planificar, generar tareas, implementar y analizar la contribución asignada.
